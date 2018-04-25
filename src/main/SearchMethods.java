@@ -14,6 +14,9 @@ public final class SearchMethods {
 		if(array == null)
 			throw new NullPointerException("Array cannot be null");
 		
+		if(array.length == 0)
+			return - 2;
+		
 		int leftEnd = 0;
 		int rightEnd = array.length -1;
 		while (leftEnd <= rightEnd)
