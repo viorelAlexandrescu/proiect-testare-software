@@ -12,9 +12,8 @@ public final class Tests {
 
     @Test
     public void equivalencePartitioning() {
-    	int[] testArray = {0, 1, 2, 3, 4, 5, 6, 7, 8 ,9};
-    	assertEquals(new NullPointerException("Array cannot be null"), SearchMethods.binarySearch(7, null));
-    	assertEquals(7, SearchMethods.binarySearch(7, testArray));
+    	int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8 ,9};
+    	assertEquals("Array cannot be null", SearchMethods.solve(array, 1));
     }
 
     @Test
@@ -48,18 +47,13 @@ public final class Tests {
     }
 
     /**
-     * Acoperirea la nivel de cale
+     * Path coverage
      */
     @Test
     public void pathCoverage() {
        
     }
-
-
-    @Test
-    public void solveTest() {
-        
-    }
+    
 	
 	public static void main(String[] args) {
 		SearchMethods.binarySearch(0, new int[]{0, 1 ,2 ,3});
