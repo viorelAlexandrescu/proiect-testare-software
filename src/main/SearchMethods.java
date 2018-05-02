@@ -13,7 +13,7 @@ public class SearchMethods {
 	 * Am > T, set R to m − 1 and go to step 2. Now Am = T, the search is done;
 	 * return m.
 	 */
-	public final static int binarySearch(int target, int[] array) {
+	public final static int binarySearch(int[] array, int target) {
 		if (array == null || array.length == 0) {
 			return -2;
 		}
@@ -45,10 +45,10 @@ public class SearchMethods {
 		return -1;
 	}
 
-	public static String solve(int[] array, int target) {
+	public final static String solve(int[] array, int target) {
 
 		int i;
-		switch (i = binarySearch(target, array)) {
+		switch (i = binarySearch(array, target)) {
 		case -1:
 			return TARGET_NOT_FOUND;
 		case -2:

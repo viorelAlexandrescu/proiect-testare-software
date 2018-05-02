@@ -62,7 +62,15 @@ public final class Tests {
 	 */
 	@Test
 	public void statementCoverage() {
-
+		assertEquals(SearchMethods.ARRAY_EMPTY_OR_NULL, SearchMethods.solve(new int[0], new Random().nextInt()));
+		
+		assertEquals(SearchMethods.ARRAY_SIZE_TOO_BIG, SearchMethods.solve(new int[21], new Random().nextInt()));
+		
+		assertEquals("4", SearchMethods.solve(array, 4));
+		assertEquals("9", SearchMethods.solve(array, 9));
+		assertEquals("0", SearchMethods.solve(array, 0));
+		
+		assertEquals(SearchMethods.TARGET_NOT_FOUND, SearchMethods.solve(array, 10));
 	}
 
 	@Test
@@ -72,7 +80,16 @@ public final class Tests {
 
 	@Test
 	public void conditionCoverage() {
-
+		assertEquals(SearchMethods.ARRAY_EMPTY_OR_NULL, SearchMethods.solve(null, new Random().nextInt()));
+		assertEquals(SearchMethods.ARRAY_EMPTY_OR_NULL, SearchMethods.solve(new int[0], new Random().nextInt()));
+		
+		assertEquals(SearchMethods.ARRAY_SIZE_TOO_BIG, SearchMethods.solve(new int[45], new Random().nextInt()));
+		
+		assertEquals("4", SearchMethods.solve(array, 4));
+		assertEquals("7", SearchMethods.solve(array, 7));
+		assertEquals("2", SearchMethods.solve(array, 2));
+		
+		assertEquals(SearchMethods.TARGET_NOT_FOUND, SearchMethods.solve(array, 10));
 	}
 
 	/**
