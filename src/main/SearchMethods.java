@@ -1,6 +1,10 @@
 package main;
 
-public final class SearchMethods {
+public class SearchMethods {
+
+	public static final String TARGET_NOT_FOUND = "Target not found";
+	public static final String ARRAY_EMPTY_OR_NULL = "Array null or empty";
+	public static final String ARRAY_SIZE_TOO_BIG = "Array size over 20";
 
 	/**
 	 * Set L to 0 and R to n − 1. If L > R, the search terminates as unsuccessful.
@@ -10,6 +14,14 @@ public final class SearchMethods {
 	 * return m.
 	 */
 	public final static int binarySearch(int target, int[] array) {
+		if (array == null || array.length == 0) {
+			return -2;
+		}
+
+		if (array.length > 20) {
+			return -3;
+		}
+
 		int leftEnd = 0;
 		int rightEnd = array.length - 1;
 		while (leftEnd <= rightEnd) {
@@ -34,23 +46,20 @@ public final class SearchMethods {
 	}
 
 	public static String solve(int[] array, int target) {
-		if (array == null)
-			return "Array cannot be null";
 
-		if (array.length == 0)
-			return "Array cannot be empty.";
-
-		if (array.length > 20)
-			return "Array is too big.";
-		
 		int i;
 		switch (i = binarySearch(target, array)) {
 		case -1:
-			return "Target not found";
+			return TARGET_NOT_FOUND;
+		case -2:
+			return ARRAY_EMPTY_OR_NULL;
+		case -3:
+			return ARRAY_SIZE_TOO_BIG;
 		default:
-			return String.format("Element is at index %d", i);
+			return String.valueOf(i);
 		}
+
 	}
-	
-	//TODO implement doContinue flow in solve method
+
+	// TODO implement doContinue flow in solve method
 }
